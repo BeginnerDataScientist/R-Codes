@@ -15,11 +15,11 @@ advertising_data <- c(117.913, 120.112, 125.828, 115.354, 177.090, 141.647, 137.
 
 # Calculate Advertising Adstock
 # Credit: http://stackoverflow.com/questions/14372880/simple-examples-of-filter-function-recursive-option-specifically
-adstocked_advertising = filter(x=advertising_data, filter=adstock_rate, method="recursive")
+adstocked_advertising <- filter(x=advertising_data, filter=adstock_rate, method="recursive")
 
 # Alternative Method Using Loops Proposed by Linh Tran
-adstocked_advertising = numeric(length(advertising_data))
-adstocked_advertising[1] = advertising_data[1]
+adstocked_advertising <- numeric(length(advertising_data))
+adstocked_advertising[1] <- advertising_data[1]
 for(i in 2:length(advertising_data)){
   adstocked_advertising[i] = advertising_data[i] + adstock_rate * adstocked_advertising[i-1]
 }
